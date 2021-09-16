@@ -10,7 +10,7 @@ globals:
   Atomics: readonly
   jQuery: false
   SharedArrayBuffer: readonly
-  Turbolinks: false
+  Turbo: false
 parserOptions:
   ecmaVersion: 2018
   sourceType: module

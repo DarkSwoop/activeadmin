@@ -3,4 +3,4 @@ let onDOMReady = () =>
 
 $(document).
   ready(onDOMReady).
-  on('page:load turbolinks:load', onDOMReady)
+  on('page:load turbo:load', onDOMReady)

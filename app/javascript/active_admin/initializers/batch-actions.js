@@ -2,7 +2,7 @@ import ModalDialog from "../lib/modal-dialog";
 
 const onDOMReady = function() {
   // Detach any previously attached handlers before re-attaching them.
-  // This avoids double-registered handlers when Turbolinks is enabled
+  // This avoids double-registered handlers when Turbo is enabled
   $('.batch_actions_selector li a').off('click confirm:complete');
 
   //
@@ -58,4 +58,4 @@ const onDOMReady = function() {
 
 $(document).
   ready(onDOMReady).
-  on('page:load turbolinks:load', onDOMReady);
+  on('page:load turbo:load', onDOMReady);

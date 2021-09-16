@@ -125,7 +125,7 @@
       });
     }
   };
-  $(document).ready(onDOMReady).on("page:load turbolinks:load", onDOMReady);
+  $(document).ready(onDOMReady).on("page:load turbo:load", onDOMReady);
   var CheckboxToggler = function() {
     function CheckboxToggler(options, container) {
       this.options = options;
@@ -290,13 +290,13 @@
   var onDOMReady$1 = function onDOMReady() {
     return $(".dropdown_menu").aaDropdownMenu();
   };
-  $(document).ready(onDOMReady$1).on("page:load turbolinks:load", onDOMReady$1);
-  function hasTurbolinks() {
-    return typeof Turbolinks !== "undefined" && Turbolinks.supported;
+  $(document).ready(onDOMReady$1).on("page:load turbo:load", onDOMReady$1);
+  function hasTurbo() {
+    return typeof Turbo !== "undefined";
   }
-  function turbolinksVisit(params) {
+  function turboVisit(params) {
     var path = [ window.location.pathname, "?", toQueryString(params) ].join("");
-    Turbolinks.visit(path);
+    Turbo.visit(path);
   }
   function queryString() {
     return (window.location.search || "").replace(/^\?/, "");
@@ -335,8 +335,8 @@
         return !name.match(regex);
       });
       event.preventDefault();
-      if (hasTurbolinks()) {
-        turbolinksVisit(params);
+      if (hasTurbo()) {
+        turboVisit(params);
       } else {
         window.location.search = toQueryString(params);
       }
@@ -347,9 +347,9 @@
       }).prop({
         disabled: true
       }).end().serializeArray();
-      if (hasTurbolinks()) {
+      if (hasTurbo()) {
         event.preventDefault();
-        turbolinksVisit(params);
+        turboVisit(params);
       }
     };
     Filters._setSearchType = function _setSearchType() {
@@ -440,8 +440,8 @@
         name: "per_page",
         value: this.element.value
       });
-      if (hasTurbolinks()) {
-        turbolinksVisit(params);
+      if (hasTurbo()) {
+        turboVisit(params);
       } else {
         window.location.search = toQueryString(params);
       }
@@ -504,7 +504,7 @@
   var onDOMReady$2 = function onDOMReady() {
     return $("#active_admin_content .tabs").tabs();
   };
-  $(document).ready(onDOMReady$2).on("page:load turbolinks:load", onDOMReady$2);
+  $(document).ready(onDOMReady$2).on("page:load turbo:load", onDOMReady$2);
   function modal_dialog(message, inputs, callback) {
     console.warn("ActiveAdmin.modal_dialog is deprecated in favor of ActiveAdmin.ModalDialog, please update usage.");
     return ModalDialog(message, inputs, callback);

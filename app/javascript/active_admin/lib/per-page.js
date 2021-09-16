@@ -1,4 +1,4 @@
-import { queryStringToParams, hasTurbolinks, turbolinksVisit, toQueryString } from './utils';
+import { queryStringToParams, hasTurbo, turboVisit, toQueryString } from './utils';
 
 class PerPage {
   constructor(element) {
@@ -11,8 +11,8 @@ class PerPage {
 
     params.push({ name: 'per_page', value: this.element.value });
 
-    if (hasTurbolinks()) {
-      turbolinksVisit(params);
+    if (hasTurbo()) {
+      turboVisit(params);
     } else {
       window.location.search = toQueryString(params);
     }

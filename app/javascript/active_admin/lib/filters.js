@@ -1,4 +1,4 @@
-import { queryStringToParams, hasTurbolinks, turbolinksVisit, toQueryString } from '../lib/utils';
+import { queryStringToParams, hasTurbo, turboVisit, toQueryString } from '../lib/utils';
 
 class Filters {
 
@@ -9,8 +9,8 @@ class Filters {
 
     event.preventDefault();
 
-    if (hasTurbolinks()) {
-      turbolinksVisit(params);
+    if (hasTurbo()) {
+      turboVisit(params);
     } else {
       window.location.search = toQueryString(params);
     }
@@ -24,9 +24,9 @@ class Filters {
       .end()
       .serializeArray();
 
-    if (hasTurbolinks()) {
+    if (hasTurbo()) {
       event.preventDefault();
-      turbolinksVisit(params);
+      turboVisit(params);
     }
   }
 
